@@ -10,25 +10,23 @@
     </linearGradient>
   </defs>
 
-  <!-- Logo -->
-  <g transform="translate(500, 180)">
-    <circle cx="100" cy="100" r="90" fill="#2563eb" />
-    <g transform="rotate(12, 100, 100)">
-      <circle cx="60" cy="76" r="16" fill="white" />
-      <circle cx="140" cy="76" r="16" fill="white" />
-      <circle cx="100" cy="144" r="16" fill="white" />
-      <line x1="60" y1="76" x2="140" y2="76" stroke="white" stroke-width="6" />
-      <line x1="60" y1="76" x2="100" y2="144" stroke="white" stroke-width="6" />
-      <line x1="140" y1="76" x2="100" y2="144" stroke="white" stroke-width="6" />
+  <!-- Logo - larger and centered -->
+  <g transform="translate(450, 50)">
+    <circle cx="150" cy="150" r="140" fill="#2563eb" />
+    <g transform="rotate(12, 150, 150)">
+      <circle cx="90" cy="114" r="24" fill="white" />
+      <circle cx="210" cy="114" r="24" fill="white" />
+      <circle cx="150" cy="216" r="24" fill="white" />
+      <line x1="90" y1="114" x2="210" y2="114" stroke="white" stroke-width="9" />
+      <line x1="90" y1="114" x2="150" y2="216" stroke="white" stroke-width="9" />
+      <line x1="210" y1="114" x2="150" y2="216" stroke="white" stroke-width="9" />
     </g>
   </g>
 
-  <!-- Title -->
-  <text x="600" y="420" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="48" font-weight="700" fill="#0f172a" text-anchor="middle">Web of Trust</text>
+  <!-- Title - larger -->
+  <text x="600" y="450" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="64" font-weight="700" fill="#0f172a" text-anchor="middle">Web of Trust</text>
 
-  <!-- Subtitle -->
-  <text x="600" y="480" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="400" fill="#64748b" text-anchor="middle">Vertrauen entsteht durch echte Begegnungen</text>
+  <!-- Subtitle - larger -->
+  <text x="600" y="530" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="32" font-weight="400" fill="#64748b" text-anchor="middle">Vertrauen entsteht durch echte Begegnungen</text>
 
-  <!-- URL -->
-  <text x="600" y="580" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="500" fill="#2563eb" text-anchor="middle">web-of-trust.de</text>
 </svg>

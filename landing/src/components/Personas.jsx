@@ -65,24 +65,28 @@ const colorClasses = {
     text: 'text-green-600',
     border: 'border-green-200',
     badge: 'bg-green-50 text-green-700',
+    dot: 'bg-green-500',
   },
   orange: {
     bg: 'bg-orange-100',
     text: 'text-orange-600',
     border: 'border-orange-200',
     badge: 'bg-orange-50 text-orange-700',
+    dot: 'bg-orange-500',
   },
   blue: {
     bg: 'bg-blue-100',
     text: 'text-blue-600',
     border: 'border-blue-200',
     badge: 'bg-blue-50 text-blue-700',
+    dot: 'bg-blue-500',
   },
   purple: {
     bg: 'bg-purple-100',
     text: 'text-purple-600',
     border: 'border-purple-200',
     badge: 'bg-purple-50 text-purple-700',
+    dot: 'bg-purple-500',
   },
 }
 
@@ -136,7 +140,7 @@ export default function Personas() {
                   <ul className="space-y-1">
                     {persona.needs.map((need, needIndex) => (
                       <li key={needIndex} className="flex items-center gap-2 text-slate-600">
-                        <span className={`w-1.5 h-1.5 rounded-full ${colors.bg.replace('100', '500')}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
                         {need}
                       </li>
                     ))}

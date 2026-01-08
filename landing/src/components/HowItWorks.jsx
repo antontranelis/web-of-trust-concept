@@ -1,4 +1,4 @@
-import { QrCode, Eye, MessageSquarePlus, CheckCircle2 } from 'lucide-react'
+import { QrCode, Eye, BadgeCheck, CheckCircle2 } from 'lucide-react'
 
 const steps = [
   {
@@ -27,7 +27,7 @@ const steps = [
   },
   {
     number: '04',
-    icon: MessageSquarePlus,
+    icon: BadgeCheck,
     title: 'Attestation erstellen',
     description: 'Nach gemeinsamer Arbeit: Anna attestiert Bens Hilfe.',
     detail: '"Ben hat 3 Stunden im Garten geholfen" - diese signierte Aussage wird Teil von Bens Profil.',
@@ -72,49 +72,38 @@ export default function HowItWorks() {
 
         {/* Steps */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Vertical Line (desktop) */}
-            <div className="hidden md:block absolute left-[39px] top-0 bottom-0 w-0.5 bg-slate-200" />
-
-            <div className="space-y-8 md:space-y-12">
+          <div className="grid md:grid-cols-2 gap-6">
               {steps.map((step, index) => {
                 const colors = colorClasses[step.color]
                 const Icon = step.icon
+                const isEven = index % 2 === 0
 
                 return (
-                  <div key={index} className="relative">
-                    <div className="flex flex-col md:flex-row gap-6">
-                      {/* Step Number Circle */}
-                      <div className="flex-shrink-0 flex items-start">
-                        <div className={`w-20 h-20 ${colors.bg} rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg relative z-10`}>
-                          <Icon size={32} />
-                        </div>
+                  <div key={index} className="relative pt-8">
+                    {/* Icon überlappt die Karte */}
+                    <div className={`absolute top-0 md:left-4 ${isEven ? 'left-4' : 'right-4'} z-10`}>
+                      <div className={`w-16 h-16 ${colors.bg} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
+                        <Icon size={32} />
                       </div>
+                    </div>
 
-                      {/* Content */}
-                      <div className="flex-grow">
-                        <div className="card">
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className={`text-sm font-bold ${colors.text}`}>
-                              Schritt {step.number}
-                            </span>
-                          </div>
-                          <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                            {step.title}
-                          </h3>
-                          <p className="text-slate-600 mb-3">
-                            {step.description}
-                          </p>
-                          <p className="text-sm text-slate-500 border-t border-slate-100 pt-3">
-                            {step.detail}
-                          </p>
-                        </div>
-                      </div>
+                    <div className="card pt-12">
+                      <span className={`text-sm font-bold ${colors.text}`}>
+                        Schritt {step.number}
+                      </span>
+                      <h3 className="text-xl font-semibold text-slate-900 mt-1 mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-slate-600 mb-3">
+                        {step.description}
+                      </p>
+                      <p className="text-sm text-slate-500 border-t border-slate-100 pt-3">
+                        {step.detail}
+                      </p>
                     </div>
                   </div>
                 )
               })}
-            </div>
           </div>
         </div>
 

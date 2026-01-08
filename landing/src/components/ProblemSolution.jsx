@@ -64,7 +64,7 @@ export default function ProblemSolution() {
           </h2>
           <p className="text-body max-w-2xl mx-auto">
             Wir setzen auf lokale Gemeinschaften statt globaler Plattformen.
-            Statt Algorithmen bauen wir auf echten Begegnungen.
+            Statt Algorithmen bauen wir auf echte Begegnungen.
           </p>
         </div>
 

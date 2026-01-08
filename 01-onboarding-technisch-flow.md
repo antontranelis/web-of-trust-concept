@@ -2,38 +2,6 @@
 
 > Wie eine neue Identität erstellt und ins Netzwerk integriert wird
 
-## Übersicht: Onboarding-Architektur
-
-```mermaid
-flowchart TD
-    subgraph External["Externe Systeme"]
-        AppStore["App Store / Play Store"]
-        Sync["Sync Server"]
-    end
-    
-    subgraph Device["Bens Gerät"]
-        Camera["Kamera"]
-        App["Web of Trust App"]
-        SecureStore["Secure Storage"]
-        LocalDB["Lokale Datenbank"]
-    end
-    
-    subgraph Crypto["Kryptographie"]
-        KeyGen["Key Generation"]
-        DIDCreate["DID Creation"]
-        BIP39["BIP39 Mnemonic"]
-    end
-    
-    Camera -->|QR-Scan| App
-    App -->|Download| AppStore
-    App -->|Sync| Sync
-    App -->|Private Key| SecureStore
-    App -->|Contacts Items| LocalDB
-    App -->|Generate| KeyGen
-    KeyGen -->|Create| DIDCreate
-    KeyGen -->|Backup| BIP39
-```
-
 ## Detailflow: ID-Erstellung
 
 ```mermaid
@@ -318,24 +286,31 @@ const signature = await crypto.subtle.sign(
 ### Was wird gespeichert
 
 ```mermaid
-flowchart TD
-    subgraph SecureStorage["Secure Storage verschlüsselt"]
-        PrivKey["Private Key non-extractable auf Web"]
+flowchart LR
+    subgraph SecureStorage["Secure Storage"]
+        PrivKey["Private Key"]
     end
     
     subgraph LocalDB["Lokale Datenbank"]
         Profile["Eigenes Profil"]
-        Contacts["Kontakte und Public Keys"]
-        Items["Items und Item Keys"]
-        Groups["Gruppen und Group Keys"]
+        Contacts["Kontakte + Public Keys"]
+        Items["Items + Item Keys"]
+        Groups["Gruppen + Group Keys"]
     end
     
-    subgraph NeverStored["NIE gespeichert - NUR EINMAL angezeigt"]
-        Mnemonic["Recovery-Phrase 12 Wörter"]
+    subgraph NeverStored["NIE gespeichert"]
+        Mnemonic["Recovery-Phrase"]
     end
     
     style NeverStored fill:#FFE4E4,stroke:#FF0000
+    style SecureStorage fill:#E4FFE4,stroke:#00AA00
 ```
+
+| Speicherort | Inhalt | Details |
+|-------------|--------|---------|
+| **Secure Storage** | Private Key | Non-extractable auf Web (Web Crypto API) |
+| **Lokale Datenbank** | Profil, Kontakte, Items, Gruppen | Verschlüsselt mit Device Key |
+| **NIE gespeichert** | Recovery-Phrase (12 Wörter) | Wird NUR EINMAL bei ID-Erstellung angezeigt |
 
 **KRITISCH:** Die Recovery-Phrase wird nirgendwo gespeichert. Sie wird **exakt einmal** bei der ID-Erstellung angezeigt. Der Nutzer MUSS das Quiz bestehen um fortzufahren - es gibt keine ungesicherten Accounts.
 

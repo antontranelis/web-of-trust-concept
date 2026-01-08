@@ -41,7 +41,7 @@ flowchart LR
     PK[Private Key] -->|"kontrolliert"| ID[Identität]
     ID -->|"signiert"| V[Verifizierungen]
     ID -->|"signiert"| A[Attestationen]
-    ID -->|"entschlüsselt"| C[Content]
+    ID -->|"ver- & entschlüsselt"| C[Content]
 
     RP[Recovery Phrase] -->|"erzeugt"| PK
 ```

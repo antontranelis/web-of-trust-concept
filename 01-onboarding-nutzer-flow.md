@@ -12,7 +12,7 @@ flowchart TD
     How -->|Selbstständig| Solo["Erstellt ID alleine"]
     
     Invited --> Verify["Gegenseitige Verifizierung"]
-    Verify --> Connected["Sofort vernetzt - Sieht Content"]
+    Verify --> Connected["Vernetzt - Sieht Content"]
     
     Solo --> Alone["Hat ID aber leeres Netzwerk"]
     Alone --> Later["Muss später Menschen treffen"]

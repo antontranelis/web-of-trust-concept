@@ -99,12 +99,6 @@ sequenceDiagram
     
     B_UI->>B_App: confirmIdentity()
     
-    alt Ben hat noch keine ID
-        B_App->>B_App: generateKeyPair()
-        B_App->>B_App: createDID()
-        B_App->>B_App: savePrivateKey(secure)
-    end
-    
     B_App->>B_App: createVerification(anna.did)
     Note over B_App: Verification Dokument erstellt
     B_App->>B_App: saveContact(anna, pending)
@@ -139,15 +133,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    Start(["Nutzer tippt Identitaet bestaetigen"]) --> CheckID{"Eigene ID vorhanden?"}
-    
-    CheckID -->|Nein| GenKey["generateKeyPair()"]
-    GenKey --> GenDID["createDID()"]
-    GenDID --> SaveKey["savePrivateKey() to secure storage"]
-    SaveKey --> ShowRecovery["Zeige Recovery-Phrase - KRITISCH!"]
-    ShowRecovery --> CreateVerif
-    
-    CheckID -->|Ja| CreateVerif["createVerification()"]
+    Start(["Nutzer tippt Identitaet bestaetigen"]) --> CreateVerif["createVerification()"]
     
     CreateVerif --> BuildPayload["Baue Payload: type, from, to, timestamp"]
     
@@ -167,6 +153,8 @@ flowchart TD
     
     Queue --> End(["Fertig"])
 ```
+
+**Voraussetzung:** Nutzer hat bereits eine ID (siehe Flow 01: Onboarding).
 
 ## Detailflow: Item Keys neu verschlüsseln
 

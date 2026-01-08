@@ -6,39 +6,34 @@
 
 ```mermaid
 sequenceDiagram
-    participant A as Anna - hat App
-    participant B as Ben - neu
+    participant A as Anna
+    participant B as Ben
 
-    Note over A,B: Persönliches Treffen
+    Note over A,B: Treffen sich auf Straßenfest
 
+    A->>B: Bist du auch bei Web of Trust?
+    B->>A: Ja! Lass uns connecten
+    
     rect rgb(230, 245, 255)
         Note over A,B: Phase 1 - Ben verifiziert Anna
-        A->>A: Öffnet App, zeigt QR-Code
-        A->>B: Scann mal meinen Code
-        B->>B: Öffnet App oder Kamera
-        B->>A: Scannt QR-Code
-        B->>B: Sieht Annas Profil
-        B->>B: Prüft - Ist das wirklich Anna?
-        B-->>B: Hat noch keine ID? Wird erstellt
+        A->>A: Zeigt QR-Code
+        B->>A: Scannt, sieht Profil
+        B->>B: Sieht 8 deiner Kontakte haben Anna verifiziert
         B->>B: Tippt Identität bestätigen
     end
-
+    
     rect rgb(255, 245, 230)
         Note over A,B: Phase 2 - Anna verifiziert Ben
-        B->>B: Öffnet eigenen QR-Code
-        B->>A: Jetzt du mich
-        A->>B: Scannt Bens QR-Code
-        A->>A: Sieht Bens Profil - neu, keine Attestationen
-        A->>A: Prüft - Ist das wirklich Ben?
+        B->>B: Zeigt QR-Code
+        A->>B: Scannt, sieht Profil
+        A->>A: Sieht 12 deiner Kontakte haben Ben verifiziert
         A->>A: Tippt Identität bestätigen
     end
-
+    
     rect rgb(230, 255, 230)
         Note over A,B: Verbindung hergestellt
         Note over A: Ben ist jetzt in Meine Kontakte
         Note over B: Anna ist jetzt in Meine Kontakte
-        A->>B: Sieht Bens zukünftigen Content
-        B->>A: Sieht Annas Content
     end
 ```
 
@@ -72,30 +67,6 @@ sequenceDiagram
     rect rgb(230, 255, 230)
         Note over A,B: Jetzt vollständig verbunden
     end
-```
-
-## Variante: Beide haben schon die App
-
-```mermaid
-sequenceDiagram
-    participant A as Anna - hat App
-    participant B as Ben - hat App
-
-    Note over A,B: Treffen sich auf Straßenfest
-
-    A->>B: Bist du auch bei Web of Trust?
-    B->>A: Ja! Lass uns connecten
-    
-    A->>A: Zeigt QR-Code
-    B->>A: Scannt, sieht Profil
-    B->>B: Identität bestätigen
-    
-    B->>B: Zeigt QR-Code
-    A->>B: Scannt, sieht Profil
-    A->>A: Sieht 12 deiner Kontakte haben Ben verifiziert
-    A->>A: Identität bestätigen
-    
-    Note over A,B: Verbunden
 ```
 
 ## Was der Nutzer sieht

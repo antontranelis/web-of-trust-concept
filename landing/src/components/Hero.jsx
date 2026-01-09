@@ -2,10 +2,10 @@ import { ArrowDown, Users, Shield, Sparkles, Plane } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-blue-100/50 via-white to-green-100/50 flex items-center pt-16 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50" />
+        <div className="absolute inset-0" />
         <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -308,8 +308,6 @@ export default function Hero() {
         </svg>
         {/* Gradient Fade Top */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
-        {/* Gradient Fade Bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
       </div>
 
       <div className="section-container">

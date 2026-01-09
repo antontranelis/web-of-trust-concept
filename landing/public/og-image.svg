@@ -21,9 +21,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.26875"
-     inkscape:cx="785.11628"
-     inkscape:cy="-100.46512"
+     inkscape:zoom="0.38006989"
+     inkscape:cx="676.19142"
+     inkscape:cy="194.70103"
      inkscape:window-width="1280"
      inkscape:window-height="768"
      inkscape:window-x="295"
@@ -52,11 +52,15 @@
        y2="100%">
       <stop
          offset="0%"
-         style="stop-color:#eff6ff;stop-opacity:1"
+         style="stop-color:#bfdbfe;stop-opacity:1"
          id="stop6" />
       <stop
+         offset="50%"
+         style="stop-color:#ffffff;stop-opacity:1"
+         id="stop7" />
+      <stop
          offset="100%"
-         style="stop-color:#f0fdf4;stop-opacity:1"
+         style="stop-color:#bbf7d0;stop-opacity:1"
          id="stop8" />
     </linearGradient>
   </defs>
@@ -139,6 +143,6 @@
        font-weight="400"
        fill="#64748b"
        id="text31"
-       style="font-size:32px">Vertrauen entsteht durch echte Begegnungen</text>
+       style="font-size:32px">Vertrauen durch echte Begegnungen</text>
   </g>
 </svg>

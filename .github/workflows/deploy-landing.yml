@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'landing/**'
+      - 'apps/landing/**'
       - '.github/workflows/deploy-landing.yml'
   workflow_dispatch:
 
@@ -24,20 +24,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: landing/package-lock.json
+          cache: 'pnpm'
 
       - name: Install dependencies
-        working-directory: landing
-        run: npm ci
+        run: pnpm install
 
-      - name: Build
-        working-directory: landing
-        run: npm run build
+      - name: Build landing page
+        run: pnpm --filter landing build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -45,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: landing/dist
+          path: apps/landing/dist
 
   deploy:
     environment:
